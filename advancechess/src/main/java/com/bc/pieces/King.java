@@ -1,4 +1,4 @@
-package com.bc;
+package com.bc.pieces;
 
 public class King extends Piece {
 

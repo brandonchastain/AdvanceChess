@@ -4,9 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends Frame {
-
-    private Canvas c;
-
     public Window(){
         setTitle("AdvanceChess");
         setSize(800, 800);
@@ -17,17 +14,9 @@ public class Window extends Frame {
             }
         });
 
-        c = new MyCanvas();
-        add(c);
+        add(Board.getInstance());
 
         repaint();
         setVisible(true);
-    }
-
-    public class MyCanvas extends Canvas {
-
-        public void paint(Graphics g) {
-            Board.getInstance().paint(g);
-        }
     }
 }

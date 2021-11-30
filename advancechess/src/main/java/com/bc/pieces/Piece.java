@@ -1,6 +1,9 @@
-package com.bc;
+package com.bc.pieces;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import com.bc.Tile;
+
 import java.awt.Font;
 
 public abstract class Piece {

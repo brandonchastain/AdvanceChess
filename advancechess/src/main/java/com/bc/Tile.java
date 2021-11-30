@@ -3,6 +3,8 @@ package com.bc;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.bc.pieces.Piece;
+
 public class Tile {
     public static final int TILE_WIDTH = 100;
     public static final int TILE_HEIGHT = 100;
@@ -25,6 +27,16 @@ public class Tile {
         if (piece != null) {
             piece.paint(g);
         }
+    }
+
+    public void OnMouseClicked() {
+        String letter = null;
+        if (piece != null) {
+            letter = piece.getPieceLetter();
+        }
+        System.out.println(String.format("Tile [%d,%d]: %s", row, col, letter));
+
+        // get possible moves of the piece on the tile and paint them red
     }
 
     public int getRow() {

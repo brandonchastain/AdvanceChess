@@ -1,8 +1,13 @@
 package com.bc;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Canvas;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class Board {
+import com.bc.pieces.*;
+
+public class Board extends Canvas {
     public static final Board instance = new Board();
     public static final int length = 8;
 
@@ -62,10 +67,26 @@ public class Board {
             Tile tile = tiles[6][col];
             addPiece(tile, new Pawn());
         }
+
+        addMouseListener(new BoardMouseListener());
     }
 
     private void addPiece(Tile t, Piece p) {
         t.setPiece(p);
         p.setTile(t);
+    }
+
+    private class BoardMouseListener extends MouseAdapter {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int x = e.getX();
+            int y = e.getY();
+            int r = y / Tile.TILE_HEIGHT;
+            int c = x / Tile.TILE_WIDTH;
+            Tile t = tiles[r][c];
+            t.OnMouseClicked();
+        }
+
     }
 }
