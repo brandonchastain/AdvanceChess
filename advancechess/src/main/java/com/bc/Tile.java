@@ -35,7 +35,6 @@ public class Tile {
             letter = piece.getPieceLetter();
         }
         System.out.println(String.format("Tile [%d,%d]: %s", row, col, letter));
-
         // get possible moves of the piece on the tile and paint them red
     }
 
@@ -45,6 +44,10 @@ public class Tile {
 
     public int getCol() {
         return col;
+    }
+
+    public Piece getPiece() {
+        return piece;
     }
 
     public void setPiece(Piece p) {
@@ -61,5 +64,9 @@ public class Tile {
 
     public Color getColor() {
         return color;
+    }
+
+    public void setColor(Color c) {
+        color = c;
     }
 }

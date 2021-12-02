@@ -3,6 +3,11 @@ import java.awt.Color;
 import com.bc.pieces.*;
 
 public abstract class Player {
-    private Color color;
+    protected Color color;
+    
+    public Player(Color c) {
+        color = c;
+    }
 
+    public abstract void makeMove();
 }

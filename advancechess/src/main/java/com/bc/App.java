@@ -9,7 +9,12 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        Window w = new Window();
+
+        ChessGame game = ChessGame.getInstance();
+        Window w = new Window(game);
+
         w.repaint();
+
+        game.play();
     }
 }
