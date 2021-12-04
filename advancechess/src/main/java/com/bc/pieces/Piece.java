@@ -20,7 +20,7 @@ public abstract class Piece {
         int x = tile.getPosX() + Tile.TILE_WIDTH / 2;
         int y = tile.getPosY() + Tile.TILE_HEIGHT / 2;
         g.setColor(Color.GRAY);
-        g.fillRect(x - 10, y - 20, 50, 50);
+        g.fillRect(x - 20, y - 25, 70, 50);
 
         String l = getPieceLetter();
         int size = 32;
@@ -31,12 +31,21 @@ public abstract class Piece {
     }
  
     public abstract String getPieceLetter();
+
     public ArrayList<Tile> getPossibleMoves() {
         return new ArrayList<Tile>();
     }
 
     public Color getColor() {
         return color;
+    }
+
+    public Tile getTile() {
+        return tile;
+    }
+
+    public void setTile(Tile t) {
+        tile = t;
     }
 
 }

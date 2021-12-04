@@ -52,6 +52,12 @@ public class ChessGame {
         // check for special conditions (pawn reached last row, en passent, etc)
     }
 
+    public void movePiece(Piece p, Tile from, Tile to) {
+        from.setPiece(null);
+        to.setPiece(p);
+        p.setTile(to);
+    }
+
     public synchronized boolean isGameOver() {
         return gameOver;
     }
