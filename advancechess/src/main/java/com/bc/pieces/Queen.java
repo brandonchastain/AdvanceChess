@@ -24,48 +24,39 @@ public class Queen extends Piece {
 
         for (int r = tile.getRow() - 1; r >= 0; r--) {
             Tile t = board.getTileAtRowCol(r, tile.getCol());
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(r, tile.getCol()));
         }
 
         for (int r = tile.getRow() + 1; r < Board.length; r++) {
             Tile t = board.getTileAtRowCol(r, tile.getCol());
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(r, tile.getCol()));
         }
 
         for (int c = tile.getCol() - 1; c >= 0; c--) {
             Tile t = board.getTileAtRowCol(tile.getRow(), c);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(tile.getRow(), c));
         }
 
         for (int c = tile.getCol() + 1; c < Board.length; c++) {
             Tile t = board.getTileAtRowCol(tile.getRow(), c);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(tile.getRow(), c));
         }
 
         int row = tile.getRow() - 1;
         int col = tile.getCol() - 1;
         while (row >= 0 && col >= 0) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row--;
             col--;
         }
@@ -74,10 +65,9 @@ public class Queen extends Piece {
         col = tile.getCol() + 1;
         while (row >= 0 && col < Board.length) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row--;
             col++;
         }
@@ -86,10 +76,9 @@ public class Queen extends Piece {
         col = tile.getCol() + 1;
         while (row < Board.length && col < Board.length) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row++;
             col++;
         }
@@ -98,10 +87,9 @@ public class Queen extends Piece {
         col = tile.getCol() - 1;
         while (row < Board.length && col >= 0) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row++;
             col--;
         }

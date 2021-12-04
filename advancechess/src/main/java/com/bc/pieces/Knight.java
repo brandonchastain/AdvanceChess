@@ -36,14 +36,10 @@ public class Knight extends Piece {
     }
 
     private void addIfPossible(int r, int c, ArrayList<Tile> results) {
-        Board board = Board.getInstance();
-
         if (r >= 0 && r < Board.length
             && c >= 0 && c < Board.length
             && (r != tile.getRow() || c != tile.getCol())) {
-
-            Tile t = board.getTileAtRowCol(r, c);
-            results.add(t);
+                addTileToMoveSet(Board.getInstance().getTileAtRowCol(r, c), results);
         }
     }
 }

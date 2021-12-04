@@ -26,10 +26,9 @@ public class Bishop extends Piece {
         int col = tile.getCol() - 1;
         while (row >= 0 && col >= 0) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row--;
             col--;
         }
@@ -38,10 +37,9 @@ public class Bishop extends Piece {
         col = tile.getCol() + 1;
         while (row >= 0 && col < Board.length) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row--;
             col++;
         }
@@ -50,10 +48,9 @@ public class Bishop extends Piece {
         col = tile.getCol() + 1;
         while (row < Board.length && col < Board.length) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row++;
             col++;
         }
@@ -62,10 +59,9 @@ public class Bishop extends Piece {
         col = tile.getCol() - 1;
         while (row < Board.length && col >= 0) {
             Tile t = board.getTileAtRowCol(row, col);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-            result.add(t);
             row++;
             col--;
         }

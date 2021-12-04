@@ -41,12 +41,15 @@ public class HumanPlayer extends Player implements OnClickable {
             return;
         }
 
+        boolean hasMoved = false;
+
         // this logic should move to some methods including Game.Move(...)
         Tile clicked = Board.getInstance().getTileAt(e.getX(), e.getY());
         if (movingPiece != null) {
             if (clicked != movingPiece.getTile() && clicked.getColor() == Color.RED) {
                 // move the piece
                 ChessGame.getInstance().movePiece(movingPiece, movingPiece.getTile(), clicked);
+                hasMoved = true;
             }
 
             //clear other possible moves
@@ -57,7 +60,7 @@ public class HumanPlayer extends Player implements OnClickable {
             shownMoves.clear();
 
             movingPiece = null;
-            setIsMyTurn(false);
+            setIsMyTurn(!hasMoved);
             return;
         }
 
@@ -74,7 +77,7 @@ public class HumanPlayer extends Player implements OnClickable {
 
         // start showing move locations
         shownMoves = p.getPossibleMoves();
-        
+
         if (shownMoves.size() == 0) {
             System.out.println("No available moves from that piece");
             return;

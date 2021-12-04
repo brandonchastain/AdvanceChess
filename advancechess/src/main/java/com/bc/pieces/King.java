@@ -24,10 +24,10 @@ public class King extends Piece {
         int col = tile.getCol();
         Board board = Board.getInstance();
 
-        for (int i = row; i < row + 3; i++) {
-            for (int j = col; j < col + 3; j++) {
+        for (int i = row - 1; i <= row + 1; i++) {
+            for (int j = col - 1; j <= col + 1; j++) {
                 if (i >= 0 && i < Board.length && j >= 0 && j < Board.length && (row != i || col != j)) {
-                    results.add(board.getTileAtRowCol(i, j));
+                    addTileToMoveSet(board.getTileAtRowCol(i, j), results);
                 }
             }
         }

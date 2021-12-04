@@ -1,7 +1,6 @@
 package com.bc.pieces;
 import java.awt.Color;
 import java.awt.Graphics;
-
 import com.bc.Tile;
 
 import java.awt.Font;
@@ -46,6 +45,26 @@ public abstract class Piece {
 
     public void setTile(Tile t) {
         tile = t;
+    }
+
+    public void onMove() {
+        // nothing
+    }
+
+    /// returns true if the space is occupied.
+    protected boolean addTileToMoveSet(Tile t, ArrayList<Tile> moves) {
+        Piece p = t.getPiece();
+
+        if (p != null)
+        {
+            if (p.getColor() != this.getColor()) {
+                moves.add(t);
+            }
+            return true;
+        }
+
+        moves.add(t);
+        return false;
     }
 
 }

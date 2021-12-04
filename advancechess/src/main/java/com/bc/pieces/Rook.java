@@ -24,38 +24,30 @@ public class Rook extends Piece {
 
         for (int r = tile.getRow() - 1; r >= 0; r--) {
             Tile t = board.getTileAtRowCol(r, tile.getCol());
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(r, tile.getCol()));
         }
 
         for (int r = tile.getRow() + 1; r < Board.length; r++) {
             Tile t = board.getTileAtRowCol(r, tile.getCol());
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(r, tile.getCol()));
         }
 
         for (int c = tile.getCol() - 1; c >= 0; c--) {
             Tile t = board.getTileAtRowCol(tile.getRow(), c);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(tile.getRow(), c));
         }
 
         for (int c = tile.getCol() + 1; c < Board.length; c++) {
             Tile t = board.getTileAtRowCol(tile.getRow(), c);
-            if (t.getPiece() != null) {
+            if (addTileToMoveSet(t, result)) {
                 break;
             }
-                
-            result.add(board.getTileAtRowCol(tile.getRow(), c));
         }
 
         return result;

@@ -79,12 +79,12 @@ public class Board extends Canvas {
 
         for (int col = 0; col < tiles[1].length; col++) {
             Tile tile = tiles[1][col];
-            addPiece(tile, new Pawn(tiles[1][col], Color.BLACK, Direction.Down));
+            addPiece(tile, new Pawn(tiles[1][col], Color.BLACK, PawnDirection.Down));
         }
 
         for (int col = 0; col < tiles[7].length; col++) {
             Tile tile = tiles[6][col];
-            addPiece(tile, new Pawn(tiles[6][col], Color.WHITE, Direction.Up));
+            addPiece(tile, new Pawn(tiles[6][col], Color.WHITE, PawnDirection.Up));
         }
 
         addMouseListener(new BoardMouseListener());

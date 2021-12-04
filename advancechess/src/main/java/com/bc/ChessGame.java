@@ -56,6 +56,8 @@ public class ChessGame {
         from.setPiece(null);
         to.setPiece(p);
         p.setTile(to);
+
+        p.onMove();
     }
 
     public synchronized boolean isGameOver() {
